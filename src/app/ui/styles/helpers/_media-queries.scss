@@ -1,0 +1,61 @@
+// Breakpoints
+$desktop: 1060px;
+$medium: 860px;
+$small: 640px;
+$xsmall: 480px;
+$xxsmall: 400px;
+
+// Media queries
+@mixin xxsmall {
+  @media (max-width: $xxsmall) {
+    @content;
+  }
+}
+@mixin xsmall {
+  @media (max-width: $xsmall) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: $small) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: $medium) {
+    @content;
+  }
+}
+@mixin tablet-down {
+  @media (max-width: $medium) {
+    @content;
+  }
+}
+@mixin tablet-up {
+  @media (min-width: $small + 1) {
+    @content;
+  }
+}
+@mixin desktop-down {
+  @media (max-width: $desktop) {
+    @content;
+  }
+}
+
+// Helpers
+.hide-on-tablet-up {
+  @include tablet-up {
+    display: none !important;
+  }
+}
+.hide-on-small {
+  @include mobile {
+    display: none;
+  }
+}
+
+.hide-on-xsmall {
+  @include xsmall {
+    display: none;
+  }
+}

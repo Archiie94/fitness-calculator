@@ -1,9 +1,4 @@
-// Breakpoints
-$desktop: 1060px;
-$medium: 860px;
-$small: 640px;
-$xsmall: 480px;
-$xxsmall: 400px;
+@import "./app/ui/styles/helpers/media-queries";
 
 $primary-color: #57659e;
 $secondary-color: #ccc;
@@ -18,81 +13,10 @@ $border-color: #eee;
 $border-darker-color: #ccc;
 
 // State colors
-$error-color: #d86464;
+$error-color: #b56565;
 $outline-color: #3cb9ff;
 
 $default-border-radius: 4px;
 $default-box-shadow: 0 10px 10px #{$primary-color}1a;
 $default-large-shadow: 0 2px 10px #{$primary-color}02,
   0 2px 25px #{$primary-color}04, 0 2px 60px #{$primary-color}23;
-
-// Media queries
-@mixin xxsmall {
-  @media (max-width: $xxsmall) {
-    @content;
-  }
-}
-@mixin xsmall {
-  @media (max-width: $xsmall) {
-    @content;
-  }
-}
-@mixin mobile {
-  @media (max-width: $small) {
-    @content;
-  }
-}
-@mixin tablet {
-  @media (max-width: $medium) {
-    @content;
-  }
-}
-@mixin tablet-down {
-  @media (max-width: $medium) {
-    @content;
-  }
-}
-@mixin tablet-up {
-  @media (min-width: $small + 1) {
-    @content;
-  }
-}
-@mixin desktop-down {
-  @media (max-width: $desktop) {
-    @content;
-  }
-}
-
-// Helpers
-.hide-on-tablet-up {
-  @include tablet-up {
-    display: none !important;
-  }
-}
-.hide-on-small {
-  @include mobile {
-    display: none;
-  }
-}
-
-.hide-on-xsmall {
-  @include xsmall {
-    display: none;
-  }
-}
-
-.glow {
-  animation: glow 2.5s ease-in-out infinite;
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: $default-large-shadow;
-  }
-  50% {
-    box-shadow: 0 2px 10px #ffffff02, 0 2px 25px #ffffff04, 0 2px 60px #ffffff23;
-  }
-  100% {
-    box-shadow: $default-large-shadow;
-  }
-}

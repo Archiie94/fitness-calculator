@@ -1,10 +1,18 @@
 @import "../../../../variables.scss";
 
-.fc-copyright {
-  color: $primary-color;
-  padding: 12px;
-  text-align: center;
-  a {
-    color: $white;
+svg {
+  display: block;
+}
+footer {
+  background: $secondary-bg;
+  position: relative;
+
+  .fc-copyright {
+    color: $primary-color;
+    padding: 12px;
+    text-align: center;
+    a {
+      color: $white;
+    }
   }
 }

@@ -1,10 +1,8 @@
-@import "./app/ui/styles/flex.scss";
-@import "./app/ui/styles/preloader.scss";
-@import "./app/ui/styles/input.scss";
-@import "./app/ui/styles/button.scss";
-@import "./variables.scss";
-@import "./material.scss";
+@import "./variables";
+@import "./app/ui/styles/main";
+@import "./material";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 @font-face {
   font-family: "Anders";
   src: url(/assets/fonts/Anders.ttf);
