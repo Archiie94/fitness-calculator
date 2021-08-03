@@ -1,0 +1,65 @@
+<div class="sp-form-control">
+  <label
+    class="d-flex justify-between align-center"
+    [for]="inputId"
+    *ngIf="label"
+    [class.required]="required"
+    [class.invalid]="
+      control.invalid &&
+      control.touched &&
+      control.dirty &&
+      control.status !== 'PENDING'
+    "
+  >
+    <span>
+      {{ label }}
+    </span>
+    <span *ngIf="!required" class="ac-optional"> (Optional) </span></label
+  >
+  <input
+    *ngIf="inputType !== 'textarea'; else textarea"
+    [attr.autocomplete]="inputType === 'password' ? 'current-password' : false"
+    [type]="inputType"
+    [id]="inputId"
+    [formControl]="control"
+    [ngClass]="{
+      disabled: control.disabled,
+      invalid:
+        control.invalid &&
+        control.touched &&
+        control.dirty &&
+        control.status !== 'PENDING'
+    }"
+    (input)="onInput()"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    [placeholder]="placeholder"
+  />
+  <ng-template #textarea>
+    <textarea
+      [name]="inputId"
+      [id]="inputId"
+      [formControl]="control"
+      [ngClass]="{
+        disabled: control.disabled,
+        invalid:
+          control.invalid &&
+          control.touched &&
+          control.dirty &&
+          control.status !== 'PENDING'
+      }"
+    ></textarea>
+  </ng-template>
+
+  <fc-validation-error
+    *ngIf="
+      control.invalid &&
+      control.touched &&
+      control.dirty &&
+      control.status !== 'PENDING'
+    "
+    [control]="control"
+    [min]="min"
+    [max]="max"
+  ></fc-validation-error>
+</div>

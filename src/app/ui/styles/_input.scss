@@ -1,0 +1,63 @@
+@import "../../../variables.scss";
+
+.sp-form-control {
+  margin-bottom: 1.5rem;
+
+  textarea,
+  > label,
+  input {
+    display: block;
+  }
+
+  > label {
+    margin-bottom: 0.1rem;
+    font-size: 0.8rem;
+    &.invalid {
+      color: $error-color;
+    }
+  }
+
+  textarea,
+  input {
+    padding: 0.5rem;
+    border: 1px solid $primary-bg;
+    border-radius: $default-border-radius;
+    width: calc(100% - 1rem);
+    background-color: $tertiary-color;
+    font-size: 1rem;
+    color: $primary-bg;
+    &.invalid {
+      border: 2px solid $error-color;
+    }
+
+    &:focus {
+      border-color: $outline-color;
+    }
+  }
+
+  textarea {
+    max-width: calc(100% - 1rem);
+    min-height: 3rem;
+  }
+
+  .ac-optional {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
+
+.radio-group-block {
+  display: flex;
+  flex-direction: column;
+  mat-radio-button {
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+mat-radio-button {
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+}

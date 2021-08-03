@@ -1,0 +1,50 @@
+@import "../../../../variables.scss";
+
+nav {
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+    .fc-logo {
+      padding: 10px 0;
+      font-family: "Anders", sans-serif;
+      font-size: 2rem;
+      color: $white;
+
+      img {
+        max-height: 35px;
+        margin-right: 12px;
+      }
+
+      .fc-logo-small {
+        font-size: 1.2rem;
+      }
+      @include mobile {
+        padding: 10px;
+      }
+    }
+
+    a {
+      display: inline-block;
+      color: $white;
+      padding: 10px 10px 7px;
+
+      &.active {
+        border-bottom: 3px solid $tertiary-color;
+      }
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      @include mobile {
+        margin-right: 10px;
+      }
+    }
+  }
+}

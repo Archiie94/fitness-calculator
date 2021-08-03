@@ -1,0 +1,101 @@
+<div class="fc-bmr-content fc-page-content d-flex justify-between wrap">
+  <form
+    [formGroup]="bmiFG"
+    (ngSubmit)="calculate()"
+    class="fc-form fc-box"
+    #formBox
+  >
+    <h1>BMI Calculator</h1>
+    <div class="sp-form-control">
+      <label>Unit</label>
+      <mat-radio-group aria-labelledby="Select unit" formControlName="unit">
+        <mat-radio-button value="metric"> Metric (cm, kg)</mat-radio-button>
+        <mat-radio-button value="imperial">
+          Imperial (inch, lbs)</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+
+    <fc-input
+      label="Height ({{ heightPostfix }})"
+      inputId="height"
+      inputType="number"
+      [control]="bmiFG.get('height')"
+      [min]="1"
+      [max]="270"
+    ></fc-input>
+
+    <fc-input
+      label="Weight ({{ weightPostFix }})"
+      inputType="number"
+      inputId="weight"
+      [control]="bmiFG.get('weight')"
+      [min]="1"
+      [max]="800"
+    ></fc-input>
+
+    <button class="btn primary" matRipple>Calculate</button>
+  </form>
+  <div
+    #resultBox
+    class="fc-form-result fc-box"
+    [class.success]="isSuccess && !isCalculating"
+    [class.glow]="!isCalculating && isSuccess"
+  >
+    <div class="fc-result">
+      <div class="fc-result-content" [class.calculating]="isCalculating">
+        <div class="fc-result-success" *ngIf="isSuccess; else noSuccess">
+          <div class="center-on-top-parent">
+            <h1>Your BMR is</h1>
+            <div
+              *ngIf="!isCalculating"
+              fcAnimateIn
+              animationDirection="bottomToTop"
+            >
+              <p class="fc-result-text glow">{{ result.toFixed(1) }}</p>
+
+              <a (click)="reCalc()" class="fc-recalculate hide-on-tablet-up"
+                >Recalculate?</a
+              >
+            </div>
+          </div>
+        </div>
+        <ng-template #noSuccess>
+          <div class="center-on-top-parent">
+            <h1>Enter your details</h1>
+            <p>Please fill out the form to start</p>
+            <div *ngIf="bmiFG.invalid && bmiFG.dirty" class="error">
+              <div
+                *ngIf="
+                  bmiFG.get('height').invalid &&
+                  bmiFG.get('height').dirty &&
+                  bmiFG.get('height').touched
+                "
+              >
+                Height field is invalid
+              </div>
+              <div
+                *ngIf="
+                  bmiFG.get('weight').invalid &&
+                  bmiFG.get('weight').dirty &&
+                  bmiFG.get('weight').touched
+                "
+              >
+                Weight field is invalid
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <!-- <img
+          class="center-bottom-on-parent svg-image"
+          src="./assets/calc.svg"
+          alt=""
+        /> -->
+      </div>
+
+      <div *ngIf="isCalculating" class="center-on-parent">
+        <div class="loader m-auto"></div>
+      </div>
+    </div>
+  </div>
+</div>

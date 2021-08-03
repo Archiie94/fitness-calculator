@@ -1,0 +1,23 @@
+@import "../../../variables.scss";
+
+.ae-validator-error {
+  margin: 4px 0 0;
+  padding: 0;
+
+  .ae-validator-error-item {
+    color: $error-color;
+    font-size: 12px;
+    list-style: circle;
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    &::before {
+      content: "●";
+      display: inline-flex;
+      position: relative;
+    }
+  }
+}

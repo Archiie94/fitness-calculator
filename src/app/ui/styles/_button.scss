@@ -1,0 +1,24 @@
+@import "../../../variables.scss";
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  transition: 0.2s ease-in-out;
+
+  &.primary {
+    font-weight: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: $default-border-radius;
+    box-shadow: $default-box-shadow;
+    background: transparent;
+    border: 2px solid $tertiary-color;
+    color: $tertiary-color;
+
+    &:hover {
+      background: $tertiary-color;
+      color: $secondary-bg;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<ul class="ae-validator-error d-flex">
+  <li
+    *ngFor="let error of control.errors | keyvalue"
+    class="ae-validator-error-item"
+  >
+    {{ errorMessages[error.key] }}
+  </li>
+</ul>

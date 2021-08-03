@@ -1,0 +1,10 @@
+@import "../../../../variables.scss";
+
+.fc-copyright {
+  color: $primary-color;
+  padding: 12px;
+  text-align: center;
+  a {
+    color: $white;
+  }
+}
